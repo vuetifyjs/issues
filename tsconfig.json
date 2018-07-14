@@ -10,8 +10,11 @@
     "sourceMap": true,
     "baseUrl": ".",
     "types": [
+      "jest",
+      "lodash",
       "node",
-      "jest"
+      "vue-i18n",
+      "webpack-env"
     ],
     "paths": {
       "@/*": [
