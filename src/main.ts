@@ -11,7 +11,6 @@ import '@/components'
 
 // Application
 import App from './App.vue'
-import i18n from '@/i18n'
 import router from '@/router'
 import store from '@/store'
 
@@ -22,7 +21,6 @@ sync(store, router)
 Vue.config.productionTip = false
 
 new Vue({
-  i18n,
   router,
   store,
   render: (h) => h(App),

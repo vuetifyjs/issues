@@ -4,7 +4,7 @@
 
     <core-drawer />
 
-    <router-view />
+    <core-view />
 
     <core-footer />
 
