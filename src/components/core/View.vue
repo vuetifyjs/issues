@@ -12,7 +12,10 @@
 </template>
 
 <script>
-  export default {
+  // Types
+  import Vue from 'vue'
+
+  export default Vue.extend({
     props: {
       lang: {
         type: String,
@@ -21,7 +24,7 @@
     },
 
     metaInfo: {
-      titleTemplate: '%s — Application Name'
+      titleTemplate: '%s'
     }
-  }
+  })
 </script>

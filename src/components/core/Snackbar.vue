@@ -16,27 +16,34 @@
   </v-snackbar>
 </template>
 
-<script>
+<script lang="ts">
+  // Types
+  import Vue from 'vue'
+
   // Utilities
   import {
     mapState
   } from 'vuex'
 
-  const ICON_MAP = {
+  interface IconMap {
+    [name: string]: string
+  }
+
+  const ICON_MAP: IconMap = {
     error: 'mdi-alert-octagon',
     info: 'mdi-information',
     success: 'mdi-check-circle',
     warning: 'mdi-alert-circle'
   }
 
-  export default {
+  export default Vue.extend({
     data: () => ({
       model: false
     }),
 
     computed: {
       ...mapState('app', ['snackbar']),
-      icon () {
+      icon (): string {
         return ICON_MAP[this.snackbar.type] || 'mdi-playlist-check'
       }
     },
@@ -46,5 +53,5 @@
         this.model = true
       }
     }
-  }
+  })
 </script>

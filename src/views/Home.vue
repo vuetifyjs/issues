@@ -7,7 +7,7 @@
 <script>
   export default {
     metaInfo: {
-      title: 'Home',
+      title: 'Vuetify Issue Helper',
       meta: [
         { name: 'description', content: 'Hello World' }
       ]

@@ -21,7 +21,6 @@ const router = new Router({
   mode: 'history',
   routes: [
     route('', 'Home'),
-    route('settings', 'Settings'),
     // Global redirect for 404
     { path: '*', redirect: '/' }
   ]
