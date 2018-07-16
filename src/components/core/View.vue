@@ -1,8 +1,8 @@
 <template>
   <v-content>
     <v-container
-      fill-height
       fluid
+      pa-0
     >
       <v-fade-transition mode="out-in">
         <router-view />

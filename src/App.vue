@@ -13,7 +13,7 @@
 <script>
   export default {
     mounted () {
-      this.snackbar$.default('Welcome to Vuetify')
+      //
     }
   }
 </script>

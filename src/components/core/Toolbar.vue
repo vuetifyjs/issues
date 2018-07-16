@@ -1,8 +1,8 @@
 <template>
   <v-toolbar
-    app
     color="primary"
     dark
+    flat
   >
     <v-avatar
       size="36"
@@ -19,13 +19,19 @@
       Vuetify Issue Helper
     </v-toolbar-title>
     <v-spacer />
-    <v-btn flat>
-      <v-icon left>mdi-file-document-box</v-icon>
-      Documentation
+    <v-btn
+      :icon="$vuetify.breakpoint.xsOnly"
+      flat
+    >
+      <v-icon>mdi-file-document-box</v-icon>
+      <span class="hidden-xs-only ml-3">Documentation</span>
     </v-btn>
-    <v-btn flat>
-      <v-icon left>mdi-account-multiple</v-icon>
-      Community
+    <v-btn
+      :icon="$vuetify.breakpoint.xsOnly"
+      flat
+    >
+      <v-icon>mdi-account-multiple</v-icon>
+      <span class="hidden-xs-only ml-3">Community</span>
     </v-btn>
     <v-btn icon>
       <v-icon>mdi-dots-vertical</v-icon>

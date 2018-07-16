@@ -12,7 +12,9 @@
     "types": [
       "jest",
       "lodash",
+      "marked",
       "node",
+      "ua-parser-js",
       "vue-i18n",
       "webpack-env"
     ],
