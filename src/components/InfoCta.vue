@@ -4,7 +4,7 @@
     lighten-3
     xs12
     pa-3
-    style="padding-bottom: 148px !important;"
+    style="padding: 48px 0 148px !important;"
   >
     <v-card
       class="mx-auto"
