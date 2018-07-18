@@ -1,7 +1,7 @@
 const requireModule = require.context('.', true, /\.ts$/)
 interface Modules {
   [name: string]: {
-    namespaced: boolean
+    namespaced: true
     [name: string]: any
   }
 }

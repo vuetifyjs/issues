@@ -1,5 +1,6 @@
+import { Repository, VersionResponse } from '@/types'
 // Libs
-import axios from 'axios'
+import axios, { AxiosResponse } from 'axios'
 
 const Api = axios.create({
   baseURL: '/api'
@@ -8,11 +9,11 @@ const Api = axios.create({
 export default {
   fetchRepositories: ({ commit }: any): Promise<any> => {
     return Api.get('repositories')
-      .then(res => commit(
+      .then((res: AxiosResponse) => commit(
         'SET_REPOSITORIES',
-        res.data.repositories
+        res.data.repositories as Repository[]
       ))
-      .catch(err => {
+      .catch((err: AxiosResponse) => {
         console.log(err)
 
         commit('app/SET_SNACKBAR', {
@@ -23,8 +24,8 @@ export default {
   },
   fetchVersions: ({ commit }: any, repository: string): any => {
     return Api.get(`versions/${repository}`)
-      .then(res => res)
-      .catch(err => {
+      .then((res: AxiosResponse) => res)
+      .catch((err: AxiosResponse) => {
         console.log(err)
 
         commit('app/SET_SNACKBAR', {
@@ -33,12 +34,20 @@ export default {
         }, { root: true })
       })
   },
-  fetchVueVersions: ({ commit, dispatch }: any): Promise<any> => {
+  fetchVueVersions: ({ commit, dispatch }: any): Promise<void> => {
     return dispatch('fetchVersions', 'vue')
-      .then((res: any) => commit('SET_VUE_VERSIONS', res.data.versions))
+      .then((res: AxiosResponse) => {
+        const { versions }: VersionResponse = res.data
+
+        commit('SET_VUE_VERSIONS', versions)
+      })
   },
-  fetchVuetifyVersions: ({ commit, dispatch }: any): Promise<any> => {
+  fetchVuetifyVersions: ({ commit, dispatch }: any): Promise<void> => {
     return dispatch('fetchVersions', 'vuetify')
-      .then((res: any) => commit('SET_VUETIFY_VERSIONS', res.data.versions))
+      .then((res: AxiosResponse) => {
+        const { versions }: VersionResponse = res.data
+
+        commit('SET_VUETIFY_VERSIONS', versions)
+      })
   },
 }

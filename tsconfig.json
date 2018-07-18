@@ -16,6 +16,7 @@
       "node",
       "ua-parser-js",
       "vue-i18n",
+      "vuex-typescript",
       "webpack-env"
     ],
     "paths": {

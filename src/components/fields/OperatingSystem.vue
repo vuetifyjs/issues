@@ -26,8 +26,8 @@
   // Types
   import Vue from 'vue'
 
-  const userAgent = UAParser()
-  const currentOS = userAgent.os
+  const userAgent = new UAParser()
+  const currentOS = userAgent.getOS()
   const currentOSString = `${currentOS.name} ${currentOS.version}`
   const currentOSItem = `Current OS - ${currentOSString}`
 
@@ -55,7 +55,7 @@
     },
 
     created () {
-      this.setOs(currentOSItem)
+      this.setOs([currentOSItem])
     },
 
     methods: {

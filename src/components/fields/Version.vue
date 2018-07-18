@@ -39,7 +39,7 @@
   } from 'vuex'
 
   // Types
-  import { Repository } from './Repository.vue'
+  import { Repository } from '@/types'
   import Vue from 'vue'
 
   export default Vue.extend({
@@ -78,10 +78,10 @@
     methods: {
       ...mapActions('api', ['fetchVuetifyVersions', 'fetchVueVersions']),
       ...mapMutations('api', {
-        setvuetifyVersions: 'SET_REPOSITORY_VERSIONS',
+        setvuetifyVersions: 'SET_VUETIFY_VERSIONS',
       }),
       ...mapMutations('issue', {
-        setRepositoryVersion: 'SET_REPOSITORY_VERSION',
+        setRepositoryVersion: 'SET_VUETIFY_VERSION',
         setVueVersion: 'SET_VUE_VERSION'
       })
     }

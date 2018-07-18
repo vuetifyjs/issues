@@ -17,3 +17,8 @@
     }
   }
 </script>
+
+<style lang="stylus">
+  .primary-transition
+    transition: .2s cubic-bezier(.25,.8,.50,1)
+</style>

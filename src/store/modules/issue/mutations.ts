@@ -5,7 +5,6 @@ export default {
   SET_BROWSERS: set('browsers'),
   SET_OS: set('os'),
   SET_REPOSITORY: set('repository'),
-  SET_REPOSITORY_VERSION: set('repositoryVersion'),
   SET_TYPE: set('type'),
   SET_TITLE: set('title'),
   SET_VUETIFY_VERSION: set('vuetifyVersion'),

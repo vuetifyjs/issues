@@ -1,5 +1,4 @@
-// Types
-import { Repository } from '@/fields/Repository.vue'
+import { Repository } from '@/types'
 
 export default {
   getRepositories (state: any): Repository[] {

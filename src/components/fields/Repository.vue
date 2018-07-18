@@ -27,14 +27,6 @@
   // Types
   import Vue from 'vue'
 
-  export interface Repository {
-    full_name: string
-    id: number
-    issues_url: string
-    name: string
-    url: string
-  }
-
   export default Vue.extend({
     computed: {
       ...mapGetters('api', ['getRepositories']),

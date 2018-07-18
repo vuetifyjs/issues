@@ -26,8 +26,8 @@
   // Types
   import Vue from 'vue'
 
-  const userAgent = UAParser()
-  const currentBrowser = userAgent.browser
+  const userAgent = new UAParser()
+  const currentBrowser = userAgent.getBrowser()
   const currentBrowserString = `${currentBrowser.name} ${currentBrowser.version}`
   const currentBrowserItem = `Current browser - ${currentBrowserString}`
 
@@ -46,9 +46,12 @@
     }),
 
     computed: {
+      ...mapState('issue', {
+        browsers: 'browsers'
+      }),
       model: {
         get (): string[] {
-          return this.$store.state.issue.browsers
+          return this.browsers
         },
         set (val: string) {
           this.setBrowsers(val)
@@ -57,7 +60,7 @@
     },
 
     created () {
-      this.setBrowsers(currentBrowserItem)
+      this.setBrowsers([currentBrowserItem])
     },
 
     methods: {

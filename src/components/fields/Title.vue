@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-flex>
     <helpers-input-header>Issue Title</helpers-input-header>
     <v-text-field
       v-model="title"
@@ -8,7 +8,7 @@
       label="Title"
       solo
     />
-  </div>
+  </v-flex>
 </template>
 
 <script lang="ts">
