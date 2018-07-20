@@ -5,6 +5,7 @@
       v-model="model"
       :items="items"
       background-color="primary lighten-3"
+      color="black"
       flat
       label="Report"
       solo

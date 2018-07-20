@@ -3,7 +3,7 @@
     <helpers-input-header>Affected Browser(s)</helpers-input-header>
     <v-autocomplete
       v-model="model"
-      :items="items"
+      :items="defaultBrowsers"
       background-color="primary lighten-3"
       flat
       label="Browser(s)"
@@ -14,9 +14,6 @@
 </template>
 
 <script lang="ts">
-  // Libs
-  import UAParser from 'ua-parser-js'
-
   // Utilities
   import {
     mapMutations,
@@ -26,29 +23,12 @@
   // Types
   import Vue from 'vue'
 
-  const userAgent = new UAParser()
-  const currentBrowser = userAgent.getBrowser()
-  const currentBrowserString = `${currentBrowser.name} ${currentBrowser.version}`
-  const currentBrowserItem = `Current browser - ${currentBrowserString}`
-
   export default Vue.extend({
-    data: () => ({
-      items: [
-        currentBrowserItem,
-        'Google Chrome',
-        'Mozilla Firefox',
-        'Safari',
-        'Microsoft Edge',
-        'Internet Explorer',
-        'Opera',
-        'Other'
-      ]
-    }),
-
     computed: {
-      ...mapState('issue', {
-        browsers: 'browsers'
-      }),
+      ...mapState('issue', [
+        'browsers',
+        'defaultBrowsers'
+      ]),
       model: {
         get (): string[] {
           return this.browsers
@@ -57,10 +37,6 @@
           this.setBrowsers(val)
         }
       }
-    },
-
-    created () {
-      this.setBrowsers([currentBrowserItem])
     },
 
     methods: {

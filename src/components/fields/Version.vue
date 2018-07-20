@@ -6,6 +6,7 @@
         v-model="vuetifyModel"
         :items="vuetifyVersions"
         background-color="primary lighten-3"
+        color="black"
         flat
         label="Version"
         solo
@@ -17,6 +18,7 @@
         v-model="vueModel"
         :items="vueVersions"
         background-color="primary lighten-3"
+        color="black"
         flat
         label="Version"
         solo

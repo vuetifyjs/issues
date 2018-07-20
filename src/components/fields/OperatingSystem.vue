@@ -3,7 +3,7 @@
     <helpers-input-header>Operating System</helpers-input-header>
     <v-autocomplete
       v-model="model"
-      :items="items"
+      :items="defaultOs"
       background-color="primary lighten-3"
       flat
       label="Operating System(s)"
@@ -14,9 +14,6 @@
 </template>
 
 <script lang="ts">
-  // Libs
-  import UAParser from 'ua-parser-js'
-
   // Utilities
   import {
     mapMutations,
@@ -26,36 +23,21 @@
   // Types
   import Vue from 'vue'
 
-  const userAgent = new UAParser()
-  const currentOS = userAgent.getOS()
-  const currentOSString = `${currentOS.name} ${currentOS.version}`
-  const currentOSItem = `Current OS - ${currentOSString}`
-
   export default Vue.extend({
-    data: () => ({
-      items: [
-        currentOSItem,
-        'Windows',
-        'Android',
-        'iOS',
-        'Mac OSX',
-        'Linux'
-      ]
-    }),
-
     computed: {
+      ...mapState('issue', [
+        'defaultOs',
+        'os'
+      ]),
+
       model: {
         get (): string[] {
-          return this.$store.state.issue.os
+          return this.os
         },
         set (val: string[]) {
           this.setOs(val)
         }
       }
-    },
-
-    created () {
-      this.setOs([currentOSItem])
     },
 
     methods: {
