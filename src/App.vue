@@ -10,7 +10,7 @@
   </v-app>
 </template>
 
-<script lang="ts">
+<script>
   // Libs
   import UAParser from 'ua-parser-js'
 

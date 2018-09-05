@@ -27,7 +27,7 @@
   </v-layout>
 </template>
 
-<script lang="ts">
+<script>
   // Libs
   import axios from 'axios'
 
@@ -52,10 +52,10 @@
       ]),
       ...mapState('issue', ['repository']),
       vuetifyModel: {
-        get (): string {
+        get () {
           return this.$store.state.issue.repositoryVersion
         },
-        set (val: any) {
+        set (val) {
           this.setRepositoryVersion(val)
         }
       },
@@ -63,10 +63,10 @@
         return capitalize(this.repository.name)
       },
       vueModel: {
-        get (): string {
+        get () {
           return this.$store.state.issue.vueVersion
         },
-        set (val: any) {
+        set (val) {
           this.setVueVersion(val)
         }
       }

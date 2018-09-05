@@ -39,7 +39,7 @@
   </v-toolbar>
 </template>
 
-<script lang="ts">
+<script>
   import Vue from 'vue'
 
   // Utilities

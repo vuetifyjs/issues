@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   // Libs
   import marked from 'marked'
 
@@ -16,10 +16,10 @@
     },
 
     render (h, ctx) {
-      let code: string = ctx.props.source
+      let code = ctx.props.source
 
       if (ctx.children) {
-        const text: string = ctx.children[0].text || ''
+        const text = ctx.children[0].text || ''
         code = text
       }
 

@@ -17,7 +17,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
   // Utilities
   import {
     mapGetters,
@@ -31,10 +31,10 @@
     computed: {
       ...mapGetters('api', ['getRepositories']),
       model: {
-        get (): string {
+        get () {
           return this.$store.state.issue.repository
         },
-        set (val: any) {
+        set (val) {
           this.setRepository(val)
         }
       }

@@ -12,7 +12,7 @@
   </v-flex>
 </template>
 
-<script lang="ts">
+<script>
   // Utilities
   import {
     mapMutations,

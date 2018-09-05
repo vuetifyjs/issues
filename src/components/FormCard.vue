@@ -41,7 +41,7 @@
   </core-card>
 </template>
 
-<script lang="ts">
+<script>
   // Utilities
   import {
     mapGetters,
@@ -60,7 +60,7 @@
         type: 'type'
       }),
 
-      isBug (): boolean {
+      isBug () {
         return (
           !!this.repository &&
           this.type === 'Bug'

@@ -13,7 +13,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
   // Utilities
   import {
     mapMutations,
@@ -31,10 +31,10 @@
       ]),
 
       model: {
-        get (): string[] {
+        get () {
           return this.os
         },
-        set (val: string[]) {
+        set (val) {
           this.setOs(val)
         }
       }

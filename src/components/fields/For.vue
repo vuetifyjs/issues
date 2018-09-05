@@ -13,7 +13,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
   // Libs
   import axios from 'axios'
 
@@ -26,11 +26,6 @@
   // Types
   import Vue from 'vue'
 
-  enum Type {
-    'Bug',
-    'Feature Request'
-  }
-
   export default Vue.extend({
     data: () => ({
       items: [
@@ -41,10 +36,10 @@
 
     computed: {
       model: {
-        get (): Type {
+        get () {
           return this.$store.state.issue.type
         },
-        set (val: Type) {
+        set (val) {
           this.setType(val)
         }
       }

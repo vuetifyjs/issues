@@ -13,7 +13,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
   // Utilities
   import {
     mapMutations,
@@ -30,10 +30,10 @@
         'defaultBrowsers'
       ]),
       model: {
-        get (): string[] {
+        get () {
           return this.browsers
         },
-        set (val: string) {
+        set (val) {
           this.setBrowsers(val)
         }
       }
