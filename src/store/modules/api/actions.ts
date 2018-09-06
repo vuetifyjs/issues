@@ -9,17 +9,20 @@ const Api = axios.create({
 export default {
   fetchRepositories: ({ commit }: any): Promise<any> => {
     return Api.get('repositories')
-      .then((res: AxiosResponse) => commit(
-        'SET_REPOSITORIES',
-        res.data.repositories as Repository[]
-      ))
+      .then((res: AxiosResponse) =>
+        commit('SET_REPOSITORIES', res.data.repositories as Repository[])
+      )
       .catch((err: AxiosResponse) => {
         console.log(err)
 
-        commit('app/SET_SNACKBAR', {
-          type: 'error',
-          msg: 'Unable to fetch Repositories'
-        }, { root: true })
+        commit(
+          'app/SET_SNACKBAR',
+          {
+            type: 'error',
+            msg: 'Unable to fetch Repositories'
+          },
+          { root: true }
+        )
       })
   },
   fetchVersions: ({ commit }: any, repository: string): any => {
@@ -28,26 +31,28 @@ export default {
       .catch((err: AxiosResponse) => {
         console.log(err)
 
-        commit('app/SET_SNACKBAR', {
-          type: 'error',
-          msg: `Unable to fetch versions for ${repository}`
-        }, { root: true })
+        commit(
+          'app/SET_SNACKBAR',
+          {
+            type: 'error',
+            msg: `Unable to fetch versions for ${repository}`
+          },
+          { root: true }
+        )
       })
   },
   fetchVueVersions: ({ commit, dispatch }: any): Promise<void> => {
-    return dispatch('fetchVersions', 'vue')
-      .then((res: AxiosResponse) => {
-        const { versions }: VersionResponse = res.data
+    return dispatch('fetchVersions', 'vue').then((res: AxiosResponse) => {
+      const { versions }: VersionResponse = res.data
 
-        commit('SET_VUE_VERSIONS', versions)
-      })
+      commit('SET_VUE_VERSIONS', versions)
+    })
   },
   fetchVuetifyVersions: ({ commit, dispatch }: any): Promise<void> => {
-    return dispatch('fetchVersions', 'vuetify')
-      .then((res: AxiosResponse) => {
-        const { versions }: VersionResponse = res.data
+    return dispatch('fetchVersions', 'vuetify').then((res: AxiosResponse) => {
+      const { versions }: VersionResponse = res.data
 
-        commit('SET_VUETIFY_VERSIONS', versions)
-      })
-  },
+      commit('SET_VUETIFY_VERSIONS', versions)
+    })
+  }
 }

@@ -1,5 +1,5 @@
 <script>
-  // Libs
+// Libs
   import marked from 'marked'
 
   // Types

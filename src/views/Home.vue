@@ -8,29 +8,24 @@
       <info-cta />
     </v-flex>
 
-    <transition-group
-      name="slide-y-transition"
-      tag="v-flex"
-      class="xs9"
-    >
-      <form-card key="form" />
+    <v-flex xs7>
+      <v-fade-transition group>
+        <issue-card key="form" />
 
-      <component
-        v-if="hasPreview"
-        :is="component"
-        id="preview"
-        key="card"
-      />
-    </transition-group>
+        <component
+          v-if="hasPreview"
+          id="preview"
+          key="card"
+          :is="component"
+        />
+      </v-fade-transition>
+    </v-flex>
   </v-layout>
 </template>
 
 <script>
-  // Utilities
-  import {
-    mapGetters,
-    mapState
-  } from 'vuex'
+// Utilities
+  import { mapGetters, mapState } from 'vuex'
 
   export default {
     data: () => ({

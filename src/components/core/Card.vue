@@ -5,13 +5,14 @@
   >
     <v-card-title class="headline">
       {{ title }}
+      <slot name="actions" />
     </v-card-title>
     <slot />
   </v-card>
 </template>
 
 <script>
-  // Types
+// Types
   import Vue from 'vue'
 
   export default Vue.extend({

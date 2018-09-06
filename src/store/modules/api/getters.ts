@@ -10,5 +10,5 @@ export default {
 
       return a.full_name > b.full_name ? 1 : -1
     })
-  },
+  }
 }

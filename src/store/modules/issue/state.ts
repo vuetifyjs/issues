@@ -9,13 +9,7 @@ export default {
     'Opera',
     'Other'
   ],
-  defaultOs: [
-    'Windows',
-    'Android',
-    'iOS',
-    'Mac OSX',
-    'Linux'
-  ],
+  defaultOs: ['Windows', 'Android', 'iOS', 'Mac OSX', 'Linux'],
   os: [],
   repository: null,
   type: 'Bug',

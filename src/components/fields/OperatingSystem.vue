@@ -4,31 +4,23 @@
     <v-autocomplete
       v-model="model"
       :items="defaultOs"
-      background-color="primary lighten-3"
-      flat
       label="Operating System(s)"
       multiple
-      solo
+      box
     />
   </div>
 </template>
 
 <script>
-  // Utilities
-  import {
-    mapMutations,
-    mapState
-  } from 'vuex'
+// Utilities
+  import { mapMutations, mapState } from 'vuex'
 
   // Types
   import Vue from 'vue'
 
   export default Vue.extend({
     computed: {
-      ...mapState('issue', [
-        'defaultOs',
-        'os'
-      ]),
+      ...mapState('issue', ['defaultOs', 'os']),
 
       model: {
         get () {

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  // Types
+// Types
   import Vue from 'vue'
 
   export default Vue.extend({

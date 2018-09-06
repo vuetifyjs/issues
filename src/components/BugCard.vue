@@ -1,55 +1,49 @@
 <template>
-  <core-card title="Issue Preview">
-    <div class="mb-3 px-3 pt-3">
-      <helpers-option
-        :value="title || 'Preview'"
-        title="Title"
-      />
-
-      <helpers-option
-        :value="vuetifyVersion || 'Pending'"
-        title="Vuetify version"
-      />
-
-      <helpers-option
-        :value="vueVersion || 'Pending'"
-        title="Vue version"
-      />
-
-      <helpers-option
-        :value="browsers.join(', ')"
-        title="Browsers"
-      />
-
-      <helpers-option
-        :value="os.join(', ')"
-        title="OS"
-      />
-    </div>
-
+  <core-card title="Bug Report">
+    <template slot="actions">
+      <v-divider class="mx-3" />
+      <v-chip
+        v-for="(chip, i) in chips"
+        :key="i"
+        small
+      >
+        <v-avatar :color="chip.color">
+          <v-img
+            v-if="chip.src"
+            :height="chip.height"
+            :src="require(`@/assets/${chip.src}`)"
+            contain
+          />
+          <v-icon
+            v-else-if="chip.icon"
+            class="white--text"
+            v-text="chip.icon"
+          />
+        </v-avatar>
+        <span v-text="chip.text" />
+      </v-chip>
+    </template>
     <v-form>
-      <v-container>
+      <v-container fluid>
         <v-layout wrap>
           <v-flex
             py-0
             xs12
           >
             <v-text-field
+              ref="reproductionLink"
               :hint="reproductionHint"
               :rules="[rules.validRepro]"
-              background-color="primary lighten-3"
-              color="black"
               flat
               label="Reproduction link"
               persistent-hint
-              ref="reproductionLink"
-              solo
+              box
             />
           </v-flex>
           <v-flex xs12 py-0>
             <v-checkbox
-              label="This used to work"
               v-model="usedToWork"
+              label="This used to work"
             />
           </v-flex>
           <v-flex
@@ -64,11 +58,9 @@
               :hint="markdownHint"
               :rules="item.rules"
               auto-grow
-              background-color="primary lighten-3"
-              color="black"
               flat
               persistent-hint
-              solo
+              box
             />
           </v-flex>
         </v-layout>
@@ -89,7 +81,7 @@
 </template>
 
 <script>
-  // Utilities
+// Utilities
   import { mapState } from 'vuex'
 
   // Types
@@ -101,7 +93,9 @@
         required: v => !!v || 'This field is required',
         requiredText: v => (v || '').trim().length || 'This field is required',
         requiredMultiple: v => !!v.length || 'This field is required',
-        validRepro: v => /https?:\/\/.*(github|codepen|codesandbox)/.test(v) || 'Please only use Codepen, CodeSandbox or a github repo'
+        validRepro: v =>
+          /https?:\/\/.*(github|codepen|codesandbox)/.test(v) ||
+          'Please only use Codepen, CodeSandbox or a github repo'
       }
 
       return {
@@ -143,7 +137,28 @@
         'type',
         'vuetifyVersion',
         'vueVersion'
-      ])
+      ]),
+      chips () {
+        return [
+          {
+            color: 'red',
+            icon: 'mdi-bug',
+            text: 'Bug'
+          },
+          {
+            color: 'blue darken-4',
+            height: 18,
+            src: 'v-alt.svg',
+            text: this.vuetifyVersion
+          },
+          {
+            color: 'green lighten-5',
+            height: 32,
+            src: 'vue.png',
+            text: this.vueVersion
+          }
+        ]
+      }
     },
 
     mounted () {

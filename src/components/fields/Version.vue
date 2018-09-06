@@ -5,11 +5,9 @@
       <v-autocomplete
         v-model="vuetifyModel"
         :items="vuetifyVersions"
-        background-color="primary lighten-3"
-        color="black"
         flat
         label="Version"
-        solo
+        box
       />
     </v-flex>
     <v-flex xs12 sm6>
@@ -17,39 +15,26 @@
       <v-autocomplete
         v-model="vueModel"
         :items="vueVersions"
-        background-color="primary lighten-3"
-        color="black"
         flat
         label="Version"
-        solo
+        box
       />
     </v-flex>
   </v-layout>
 </template>
 
 <script>
-  // Libs
-  import axios from 'axios'
-
   // Utilities
   import capitalize from 'lodash/capitalize'
 
-  import {
-    mapActions,
-    mapMutations,
-    mapState
-  } from 'vuex'
+  import { mapMutations, mapState } from 'vuex'
 
   // Types
-  import { Repository } from '@/types'
   import Vue from 'vue'
 
   export default Vue.extend({
     computed: {
-      ...mapState('api', [
-        'vuetifyVersions',
-        'vueVersions'
-      ]),
+      ...mapState('api', ['vuetifyVersions', 'vueVersions']),
       ...mapState('issue', ['repository']),
       vuetifyModel: {
         get () {
@@ -72,15 +57,9 @@
       }
     },
 
-    mounted () {
-      this.fetchVueVersions()
-      this.fetchVuetifyVersions()
-    },
-
     methods: {
-      ...mapActions('api', ['fetchVuetifyVersions', 'fetchVueVersions']),
       ...mapMutations('api', {
-        setvuetifyVersions: 'SET_VUETIFY_VERSIONS',
+        setvuetifyVersions: 'SET_VUETIFY_VERSIONS'
       }),
       ...mapMutations('issue', {
         setRepositoryVersion: 'SET_VUETIFY_VERSION',

@@ -1,7 +1,7 @@
 <template>
   <core-card title="Issue Information">
     <v-form ref="form">
-      <v-container grid-list-md>
+      <v-container fluid grid-list-md>
         <fields-for />
 
         <fields-repository />
@@ -9,13 +9,13 @@
         <v-expand-transition>
           <v-flex
             v-if="!!repository"
-            primary-transition
             wrap
             xs12
           >
             <fields-title />
 
             <forms-issue v-if="isBug" />
+            <forms-feature v-else />
           </v-flex>
         </v-expand-transition>
       </v-container>
@@ -42,12 +42,8 @@
 </template>
 
 <script>
-  // Utilities
-  import {
-    mapGetters,
-    mapMutations,
-    mapState
-  } from 'vuex'
+// Utilities
+  import { mapGetters, mapMutations, mapState } from 'vuex'
 
   // Types
   import Vue from 'vue'
@@ -61,10 +57,7 @@
       }),
 
       isBug () {
-        return (
-          !!this.repository &&
-          this.type === 'Bug'
-        )
+        return !!this.repository && this.type === 'Bug'
       }
     },
 

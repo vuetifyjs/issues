@@ -8,10 +8,9 @@ function route (path: string, name: string) {
   return {
     name,
     path,
-    component: (resolve: any) => import(
-      /* webpackChunkName: "views" */
-      `@/views/${name}.vue`
-    ).then(resolve)
+    component: (resolve: any) =>
+      import(/* webpackChunkName: "views" */
+        `@/views/${name}.vue`).then(resolve)
   }
 }
 

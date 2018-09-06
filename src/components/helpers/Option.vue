@@ -5,10 +5,16 @@
 </template>
 
 <script>
-export default {
-  props: {
-    title: null,
-    value: null
+  export default {
+    props: {
+      title: {
+        type: String,
+        default: null
+      },
+      value: {
+        type: String,
+        default: null
+      }
+    }
   }
-}
 </script>

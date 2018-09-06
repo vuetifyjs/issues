@@ -7,7 +7,7 @@ export default {
   SET_OS: set('os'),
   SET_REPOSITORY: set('repository'),
   SET_TYPE: set('type'),
-  SET_TITLE: set('title'),
+  setTitle: set('title'),
   SET_VUETIFY_VERSION: set('vuetifyVersion'),
-  SET_VUE_VERSION: set('vueVersion'),
+  SET_VUE_VERSION: set('vueVersion')
 }

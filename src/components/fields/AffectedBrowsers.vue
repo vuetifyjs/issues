@@ -4,31 +4,24 @@
     <v-autocomplete
       v-model="model"
       :items="defaultBrowsers"
-      background-color="primary lighten-3"
       flat
       label="Browser(s)"
       multiple
-      solo
+      box
     />
   </div>
 </template>
 
 <script>
-  // Utilities
-  import {
-    mapMutations,
-    mapState
-  } from 'vuex'
+// Utilities
+  import { mapMutations, mapState } from 'vuex'
 
   // Types
   import Vue from 'vue'
 
   export default Vue.extend({
     computed: {
-      ...mapState('issue', [
-        'browsers',
-        'defaultBrowsers'
-      ]),
+      ...mapState('issue', ['browsers', 'defaultBrowsers']),
       model: {
         get () {
           return this.browsers

@@ -1,9 +1,9 @@
 <template>
   <v-flex>
-    <helpers-input-header>Issue Title</helpers-input-header>
-    <v-text-field
+    <helpers-input-header>What is your proposed solution?</helpers-input-header>
+    <v-textarea
       v-model="model"
-      label="Title"
+      label="And we can solve it by..."
       box
     />
   </v-flex>
@@ -18,21 +18,19 @@
 
   export default Vue.extend({
     computed: {
-      ...mapState('issue', ['title']),
+      ...mapState('issue', ['solution']),
       model: {
         get () {
-          return this.title
+          return this.solution
         },
         set (val) {
-          this.setTitle(val)
+          this.setSolution(val)
         }
       }
     },
 
     methods: {
-      ...mapMutations('issue', {
-        setTitle: 'setTitle'
-      })
+      ...mapMutations('issue', ['setSolution'])
     }
   })
 </script>

@@ -11,14 +11,11 @@
 </template>
 
 <script>
-  // Libs
+// Libs
   import UAParser from 'ua-parser-js'
 
   // Utilities
-  import {
-    mapActions,
-    mapMutations
-  } from 'vuex'
+  import { mapActions, mapMutations } from 'vuex'
 
   // Types
   import Vue from 'vue'
@@ -34,13 +31,13 @@
   export default Vue.extend({
     metaInfo: {
       title: 'Vuetify Issue Helper',
-      meta: [
-        { name: 'description', content: 'Hello World' }
-      ]
+      meta: [{ name: 'description', content: 'Hello World' }]
     },
 
     mounted () {
       this.fetchRepositories()
+      this.fetchVueVersions()
+      this.fetchVuetifyVersions()
       this.pushDefaultBrowser(currentBrowserItem)
       this.pushDefaultOs(currentOSItem)
       this.setBrowsers([currentBrowserItem])
@@ -48,7 +45,11 @@
     },
 
     methods: {
-      ...mapActions('api', ['fetchRepositories']),
+      ...mapActions('api', [
+        'fetchRepositories',
+        'fetchVuetifyVersions',
+        'fetchVueVersions'
+      ]),
       ...mapMutations('issue', {
         pushDefaultBrowser: 'PUSH_DEFAULT_BROWSER',
         pushDefaultOs: 'PUSH_DEFAULT_OS',
@@ -62,4 +63,8 @@
 <style lang="stylus">
   .primary-transition
     transition: .2s cubic-bezier(.25,.8,.50,1)
+
+  .v-chip
+    .v-avatar
+      margin-left: -14px
 </style>

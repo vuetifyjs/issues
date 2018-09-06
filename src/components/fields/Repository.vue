@@ -5,24 +5,20 @@
       v-model="model"
       :items="getRepositories"
       autocorrect="off"
-      background-color="primary lighten-3"
-      flat
+      clearable
       item-text="full_name"
       item-value="full_name"
       label="Repository"
       return-object
       spellcheck="false"
-      solo
+      box
     />
   </div>
 </template>
 
 <script>
-  // Utilities
-  import {
-    mapGetters,
-    mapMutations
-  } from 'vuex'
+// Utilities
+  import { mapGetters, mapMutations } from 'vuex'
 
   // Types
   import Vue from 'vue'

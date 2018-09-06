@@ -17,13 +17,11 @@
 </template>
 
 <script>
-  // Types
+// Types
   import Vue from 'vue'
 
   // Utilities
-  import {
-    mapState
-  } from 'vuex'
+  import { mapState } from 'vuex'
 
   const ICON_MAP = {
     error: 'mdi-alert-octagon',
